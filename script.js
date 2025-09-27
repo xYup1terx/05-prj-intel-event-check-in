@@ -46,7 +46,7 @@ form.addEventListener("submit", function (event) {
   } else if (team === "power") {
     teamColorClass = "team-power";
   }
-  const message = `Welcome, ${name} from <span class='${teamColorClass}'>${teamName}</span>!`;
+  const message = `🎉Welcome, ${name} from <span class='${teamColorClass}'>${teamName}</span>!🎉`;
   const greeting = document.getElementById("greeting");
   greeting.innerHTML = message;
   greeting.style.display = "block";
