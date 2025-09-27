@@ -21,10 +21,16 @@ form.addEventListener("submit", function (event) {
   count++;
   const attendeeCount = document.getElementById("attendeeCount");
   attendeeCount.textContent = count;
+
   console.log("Total check-ins: ", count);
 
   //Update progress bar
   const percentage = Math.round((count / maxCount) * 100) + "%";
+  //added lines
+  const progressBar = document.getElementById("progressBar");
+  progressBar.style.width = percentage;
+  progressBar.textContent = percentage;
+
   console.log(`Progress: ${percentage}`);
 
   // Update team counter
@@ -32,8 +38,10 @@ form.addEventListener("submit", function (event) {
   teamCounter.textContent = parseInt(teamCounter.textContent) + 1;
 
   // Show welcome message
-  const message = `Welcome, ${name} from ${teamName}`;
-  console.log(message);
+  const message = `Welcome, ${name} from ${teamName}!`;
+  const greeting = document.getElementById("greeting");
+  greeting.textContent = message;
+  greeting.style.display = "block";
 
   //Reset form
   form.reset();
