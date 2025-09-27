@@ -38,9 +38,17 @@ form.addEventListener("submit", function (event) {
   teamCounter.textContent = parseInt(teamCounter.textContent) + 1;
 
   // Show welcome message
-  const message = `Welcome, ${name} from ${teamName}!`;
+  let teamColorClass = "";
+  if (team === "water") {
+    teamColorClass = "team-water";
+  } else if (team === "zero") {
+    teamColorClass = "team-zero";
+  } else if (team === "power") {
+    teamColorClass = "team-power";
+  }
+  const message = `Welcome, ${name} from <span class='${teamColorClass}'>${teamName}</span>!`;
   const greeting = document.getElementById("greeting");
-  greeting.textContent = message;
+  greeting.innerHTML = message;
   greeting.style.display = "block";
 
   //Reset form
