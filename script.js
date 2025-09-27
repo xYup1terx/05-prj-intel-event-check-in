@@ -19,6 +19,8 @@ form.addEventListener("submit", function (event) {
 
   //Increment Count
   count++;
+  const attendeeCount = document.getElementById("attendeeCount");
+  attendeeCount.textContent = count;
   console.log("Total check-ins: ", count);
 
   //Update progress bar

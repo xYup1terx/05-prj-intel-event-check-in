@@ -26,6 +26,8 @@ Clear all fields in the form so it's ready for the next attendee.
 
 Update the text inside a span to show the current attendee count.
 
+
+
 ## Update the width of a progress bar using a percentage
 
 Change the width of a progress bar based on the calculated progress.
