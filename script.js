@@ -3,6 +3,12 @@ const form = document.getElementById("checkInForm");
 const nameInput = document.getElementById("attendeeName");
 const teamSelect = document.getElementById("teamSelect");
 
+// Create attendee list container and add to page (beneath team counters)
+const attendeeList = document.createElement("div");
+attendeeList.id = "attendeeList";
+const teamStats = document.querySelector(".team-stats");
+teamStats.parentNode.insertBefore(attendeeList, teamStats.nextSibling);
+
 //Track attendance
 let count = 0;
 const maxCount = 50;
@@ -72,6 +78,19 @@ form.addEventListener("submit", function (event) {
   teamCounter.textContent = parseInt(teamCounter.textContent) + 1;
 
   // Show welcome message or celebration
+  // Add attendee to the list
+  let teamColorClass = "";
+  if (team === "water") {
+    teamColorClass = "team-water";
+  } else if (team === "zero") {
+    teamColorClass = "team-zero";
+  } else if (team === "power") {
+    teamColorClass = "team-power";
+  }
+  const attendeeItem = document.createElement("div");
+  attendeeItem.className = "attendee-item";
+  attendeeItem.innerHTML = `<span class='attendee-name'>${name}</span> from <span class='${teamColorClass}'>${teamName}</span>`;
+  attendeeList.appendChild(attendeeItem);
   const greeting = document.getElementById("greeting");
   if (count === maxCount) {
     // Find the winning team
